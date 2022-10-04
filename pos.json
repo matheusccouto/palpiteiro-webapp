@@ -1,0 +1,70 @@
+{
+    "players-goalkeeper-1": {
+        "x": 0,
+        "y": 0.145
+    },
+    "players-defender-1": {
+        "x": -0.05,
+        "y": 0.357
+    },
+    "players-defender-2": {
+        "x": 0.05,
+        "y": 0.357
+    },
+    "players-fullback-1": {
+        "x": -0.15,
+        "y": 0.417
+    },
+    "players-fullback-2": {
+        "x": 0.15,
+        "y": 0.417
+    },
+    "players-midfielder-1": {
+        "x": -0.15,
+        "y": 0.673
+    },
+    "players-midfielder-2": {
+        "x": 0,
+        "y": 0.633
+    },
+    "players-midfielder-3": {
+        "x": 0.15,
+        "y": 0.673
+    },
+    "players-forward-1": {
+        "x": -0.15,
+        "y": 0.915
+    },
+    "players-forward-2": {
+        "x": 0,
+        "y": 0.875
+    },
+    "players-forward-3": {
+        "x": 0.15,
+        "y": 0.915
+    },
+    "players-coach-1": {
+        "x": -0.15,
+        "y": 0.145
+    },
+    "bench-goalkeeper-1": {
+        "x": -0.15,
+        "y": -0.125
+    },
+    "bench-defender-1": {
+        "x": -0.075,
+        "y": -0.125
+    },
+    "bench-fullback-1": {
+        "x": 0,
+        "y": -0.125
+    },
+    "bench-midfielder-1": {
+        "x": 0.075,
+        "y": -0.125
+    },
+    "bench-forward-1": {
+        "x": 0.15,
+        "y": -0.125
+    }
+}
