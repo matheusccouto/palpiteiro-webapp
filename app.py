@@ -3,7 +3,7 @@
 import json
 import os
 import concurrent.futures
-from PIL import Image
+from PIL import Image, UnidentifiedImageError
 
 import pandas as pd
 import requests
@@ -97,28 +97,42 @@ def transform_data(data, captain=False):
 
 def add_player_image(fig, x, y, name, photo, logo, price):
     """Add player image."""
-    fig.add_layout_image(
-        source=Image.open(photo),
-        xref="x",
-        yref="y",
-        x=x,
-        y=y,
-        sizex=0.15,
-        sizey=0.15,
-        xanchor="center",
-        yanchor="middle",
-    )
-    fig.add_layout_image(
-        source=Image.open(logo),
-        xref="x",
-        yref="y",
-        x=x + 0.01,
-        y=y - 0.015,
-        sizex=0.075,
-        sizey=0.075,
-        xanchor="left",
-        yanchor="top",
-    )
+    try:
+        fig.add_layout_image(
+            source=Image.open(photo),
+            xref="x",
+            yref="y",
+            x=x,
+            y=y,
+            sizex=0.15,
+            sizey=0.15,
+            xanchor="center",
+            yanchor="middle",
+        )
+        fig.add_layout_image(
+            source=Image.open(logo),
+            xref="x",
+            yref="y",
+            x=x + 0.01,
+            y=y - 0.015,
+            sizex=0.075,
+            sizey=0.075,
+            xanchor="left",
+            yanchor="top",
+        )
+    except UnidentifiedImageError:
+        fig.add_layout_image(
+            source=Image.open(logo),
+            xref="x",
+            yref="y",
+            x=x,
+            y=y,
+            sizex=0.15,
+            sizey=0.15,
+            xanchor="center",
+            yanchor="middle",
+        )
+
     fig.add_trace(
         go.Scatter(
             x=[x],
