@@ -33,7 +33,7 @@ def get_line_up(game, budget, scheme, max_players_per_club, bench, dropout, date
     """Request a line up."""
     res = requests.post(
         url=st.secrets["API_URL"],
-        timeout=10,
+        timeout=30,
         headers={
             "x-api-key": st.secrets["API_KEY"],
             "Content-Type": "application/json",
