@@ -180,7 +180,7 @@ def main():
         )
         bench = True
         dropout = 0.0
-        date = None
+        dropout_type = None
 
     elif game == "Cartola Express":
         game = "cartola-express"
