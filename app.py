@@ -45,6 +45,7 @@ def get_line_up(game, budget, scheme, max_players_per_club, bench, dropout, date
             "max_players_per_club": max_players_per_club,
             "bench": bench,
             "dropout": dropout,
+            "dropout_type": "club position",
             "date": date,
         },
     )
