@@ -29,7 +29,7 @@ ERROR_MSG = "Sorry, something went wrong. Please try again later."
 SPINNER_MSG = ""
 
 
-def get_line_up(game, budget, scheme, max_players_per_club, bench, dropout, date):
+def get_line_up(game, budget, scheme, max_players_per_club, bench, dropout, dropout_type):
     """Request a line up."""
     res = requests.post(
         url=st.secrets["API_URL"],
@@ -45,8 +45,7 @@ def get_line_up(game, budget, scheme, max_players_per_club, bench, dropout, date
             "max_players_per_club": max_players_per_club,
             "bench": bench,
             "dropout": dropout,
-            "dropout_type": "club position",
-            "date": date,
+            "dropout_type": dropout_type,
         },
     )
 
@@ -181,7 +180,7 @@ def main():
         )
         bench = True
         dropout = 0.0
-        date = None
+        dropout_type = None
 
     elif game == "Cartola Express":
         game = "cartola-express"
@@ -196,10 +195,8 @@ def main():
             step=0.01,
             format="%.2f",
         )
-        if st.sidebar.checkbox("Daily"):
-            date = st.sidebar.date_input("Date").strftime("%Y-%m-%d")
-        else:
-            date = None
+        options = ["all", "position", "club", "position and club"]
+        dropout_type = st.sidebar.selectbox("Dropout Type", options=options, index=2)
 
     else:
         raise ValueError("Invalid game")
@@ -215,7 +212,7 @@ def main():
             max_players_per_club=MAX_PLAYERS_PER_CLUB,
             bench=bench,
             dropout=dropout,
-            date=date,
+            dropout_type=dropout_type,
         )
         data = transform_data(data, captain=game == "cartola")
 
